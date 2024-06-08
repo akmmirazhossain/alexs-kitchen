@@ -12,10 +12,15 @@
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/material-nextjs": "^5.15.11",
     "axios": "^1.7.2",
     "next": "14.2.3",
     "react": "^18",
+    "react-cookie": "^7.1.4",
     "react-dom": "^18"
   },
   "devDependencies": {
