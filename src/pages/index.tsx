@@ -50,7 +50,7 @@ const MenuPage = () => {
                 <Typography variant="body2" component="p">
                   {item.details}
                 </Typography>
-                {/* <img src={item.image} alt={item.name} style={{ width: '100%', marginTop: '10px' }} /> */}
+                <img src={item.image} alt={item.name} style={{ width: '100%', marginTop: '10px' }} />
               </CardContent>
             </Card>
           </Grid>
