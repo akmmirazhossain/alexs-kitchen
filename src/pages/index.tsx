@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { useCookies } from "react-cookie";
 
-// Define interface for menu item
+// DEFINE INTERFACE FOR MENU ITEM
 interface MenuItem {
   id: number;
   name: string;
@@ -48,7 +48,7 @@ const MenuPage = () => {
     image: "",
   });
 
-  // Load data from cookies or API
+  // LOAD DATA FROM COOKIES/API
   useEffect(() => {
     const cookieMenuItems = cookies.menuItems;
     if (cookieMenuItems) {
@@ -58,21 +58,20 @@ const MenuPage = () => {
     }
   }, [cookies]);
 
-  // Function to restore data from the API
+  // FUNCTION TO RESTORE DATA FROM THE API
   const restoreDataFromAPI = async () => {
     try {
       const response = await axios.get<MenuItem[]>(
         "https://data.mazedanetworks.net/apis/menu.json"
       );
 
-      // Convert response data to JSON format and store in the cookie
+      // CONVERT RESPONSE DATA TO JSON FORMAT AND STORE IN THE COOKIE
       const jsonData = JSON.stringify(response.data);
-      console.log(jsonData);
       setMenuItems(response.data);
 
-      setCookie("menuItems", jsonData, { path: "/", maxAge: 86400 }); // 1 day expiration
+      setCookie("menuItems", jsonData, { path: "/", maxAge: 86400 });
     } catch (error) {
-      console.error("Error fetching menu items:", error);
+      console.error("Error fetching API:", error);
     }
   };
 
@@ -91,23 +90,21 @@ const MenuPage = () => {
 
   const handleEdit = () => {
     if (selectedMenuItem) {
-      // Populate dialog fields with selected menu item data
       setNewItem(selectedMenuItem);
-      setOpen(true); // Open the dialog for editing
+      setOpen(true);
     }
     handleClose();
   };
 
   const handleSaveEdit = () => {
-    // Find the index of the edited item in the menuItems array
     const index = menuItems.findIndex((item) => item.id === newItem.id);
     if (index !== -1) {
-      // Update the menuItems array with the edited item
+      // UPDATE THE MENUITEMS ARRAY WITH THE EDITED ITEM
       const updatedItems = [...menuItems];
       updatedItems[index] = newItem;
       setMenuItems(updatedItems);
       setCookie("menuItems", updatedItems, { path: "/", maxAge: 86400 });
-      setOpen(false); // Close the dialog after saving
+      setOpen(false);
     }
   };
 
@@ -115,11 +112,9 @@ const MenuPage = () => {
     const updatedItems = menuItems.filter((item) => item !== selectedMenuItem);
     setMenuItems(updatedItems);
     setCookie("menuItems", updatedItems, { path: "/", maxAge: 86400 });
-    console.log("Delete clicked for:", selectedMenuItem);
     handleClose();
   };
 
-  // const handleOpen = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -160,15 +155,14 @@ const MenuPage = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        // Add other styles as needed
       }}
     >
       <Container>
-        <div className="text-5xl py-10 border-b-2">Alex&apos;s Kitchen</div>
+        <div className="text-3xl lg:text-5xl py-6 lg:py-10 border-b-2">
+          Alex&apos;s Kitchen
+        </div>
         <div className="flex justify-between pt-4">
-          <Typography variant="h4" gutterBottom>
-            Our Menu
-          </Typography>
+          <div className="text-2xl lg:text-3xl">Our Menu</div>
           <Box display="flex" justifyContent="space-between" mb={2}>
             <Button
               variant="contained"
