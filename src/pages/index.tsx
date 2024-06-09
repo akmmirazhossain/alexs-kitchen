@@ -164,7 +164,7 @@ const MenuPage = () => {
       }}
     >
       <Container>
-        <div className="text-5xl py-10 border-b-2">Alex's Kitchen</div>
+        <div className="text-5xl py-10 border-b-2">Alex&apos;s Kitchen</div>
         <div className="flex justify-between pt-4">
           <Typography variant="h4" gutterBottom>
             Our Menu
