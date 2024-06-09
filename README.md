@@ -10,9 +10,6 @@ Welcome to Alex's Kitchen!
 
 ---
 
-
----
-
 ## Question 1: Hotfix Procedure
 
 A project titled, “Alex’s Kitchen” from team "Remote Kitchen" uses Git for version control. Several developers are contributing, with each working on their own branch. The team follows certain conventions. Suppose you need to submit a hotfix. How would you name your branch? After finalizing your work in your designated branch, detail the steps you would take to create a PR and merge it with the production branch.
